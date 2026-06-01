@@ -382,7 +382,6 @@ function Dashboard() {
           {TASKS.filter(t => t.status !== "Done").slice(0, 5).map((t, i) => {
             const proj = PROJECTS.find(p => p.id === t.projectId);
             const client = CLIENTS.find(c => c.id === proj?.clientId);
-            const pm = statusMeta(t.priority);
             return (
               <div key={t.id} style={{ display: "flex", alignItems: "center", gap: 12, padding: "9px 0", borderBottom: i < 4 ? `1px solid ${T.border}` : "none" }}>
                 <div style={{ width: 3, height: 36, borderRadius: 2, background: pm.color, flexShrink: 0 }} />
@@ -770,7 +769,6 @@ function FinanceView() {
           <tbody>
             {filtered.map((inv, i) => {
               const client = CLIENTS.find(c => c.id === inv.clientId);
-              const om = statusMeta(inv.status);
               return (
                 <tr key={inv.id} style={{ borderBottom: i < filtered.length - 1 ? `1px solid ${T.border}` : "none" }}
                   onMouseEnter={e => e.currentTarget.style.background = T.bg}
