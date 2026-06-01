@@ -1,0 +1,198 @@
+# OPSLY — Complete Deployment Guide
+# From zero to live in under 15 minutes
+# ============================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHAT YOU HAVE IN THIS FOLDER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+opsly/
+├── public/
+│   └── index.html        ← The HTML shell
+├── src/
+│   ├── index.js          ← React entry point
+│   └── App.jsx           ← Full application (all 6 modules)
+├── package.json          ← Dependencies
+├── vercel.json           ← Vercel config (if using Vercel)
+├── netlify.toml          ← Netlify config (if using Netlify)
+├── .gitignore            ← Git ignore rules
+└── DEPLOY.txt            ← This file
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 0 — WHAT YOU NEED INSTALLED FIRST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Node.js (v18 or higher)
+   → Download from: https://nodejs.org
+   → Choose "LTS" version
+   → Install it, then verify: open Terminal and type:
+     node --version
+     npm --version
+   → Both should show a version number
+
+2. Git
+   → Download from: https://git-scm.com
+   → Install it, then verify:
+     git --version
+
+3. A free GitHub account
+   → Sign up at: https://github.com
+
+4. A free Vercel account (recommended) OR Netlify account
+   → Vercel:  https://vercel.com  (sign up with GitHub)
+   → Netlify: https://netlify.com (sign up with GitHub)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPTION A — DEPLOY ON VERCEL (Recommended — Fastest)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1 — Open Terminal (Mac) or Command Prompt (Windows)
+
+STEP 2 — Navigate into the opsly folder
+  cd path/to/opsly
+  (Example on Windows: cd C:\Users\YourName\Downloads\opsly)
+  (Example on Mac:     cd ~/Downloads/opsly)
+
+STEP 3 — Install dependencies
+  npm install
+  (Wait ~2 minutes — downloads all required libraries)
+
+STEP 4 — Test it runs locally first
+  npm start
+  → Browser opens automatically at http://localhost:3000
+  → You should see OPSLY fully working
+  → Press Ctrl+C in Terminal to stop it
+
+STEP 5 — Push to GitHub
+  git init
+  git add .
+  git commit -m "Initial OPSLY deployment"
+  git branch -M main
+
+  → Go to github.com → Click "New repository"
+  → Name it: opsly
+  → Keep it Public
+  → Click "Create repository"
+  → Copy the two lines GitHub shows you that look like:
+    git remote add origin https://github.com/YOURNAME/opsly.git
+    git push -u origin main
+  → Paste them in Terminal and press Enter
+
+STEP 6 — Deploy on Vercel
+  → Go to vercel.com
+  → Click "Add New Project"
+  → Click "Import Git Repository"
+  → Select your "opsly" repository
+  → Vercel auto-detects it as a React app
+  → Click "Deploy"
+  → Wait ~2 minutes
+
+STEP 7 — Your app is LIVE
+  → Vercel gives you a URL like: https://opsly.vercel.app
+  → Share it with anyone — works on all devices
+
+TOTAL TIME: ~10 minutes
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPTION B — DEPLOY ON NETLIFY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1–5 same as above (install, test, push to GitHub)
+
+STEP 6 — Deploy on Netlify
+  → Go to netlify.com
+  → Click "Add new site" → "Import an existing project"
+  → Connect to GitHub → Select "opsly"
+  → Build command:   npm run build
+  → Publish directory: build
+  → Click "Deploy site"
+
+STEP 7 — Your app is LIVE
+  → URL like: https://opsly.netlify.app
+  → You can set a custom domain in Netlify settings
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPTION C — INSTANT PREVIEW (No GitHub needed — 2 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+USE THIS IF: You just want to see it live immediately
+
+  → Go to: https://stackblitz.com/fork/react
+  → Delete the default App.js content
+  → Open src/App.jsx from this folder
+  → Copy ALL the content
+  → Paste it into App.js on StackBlitz
+  → In the StackBlitz terminal, type:
+    npm install recharts lucide-react
+  → StackBlitz gives you a live shareable URL instantly
+
+NOTE: StackBlitz URLs expire — use Vercel for permanent hosting
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CUSTOM DOMAIN (Optional — Makes it look professional)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Once deployed on Vercel or Netlify, you can attach a custom domain:
+Example: opsly.io / myagency.app / yourname-ops.com
+
+  1. Buy a domain at: namecheap.com or godaddy.com (~$10–15/year)
+  2. In Vercel: Settings → Domains → Add your domain
+  3. Follow the DNS instructions Vercel provides (copy 2 values)
+  4. Paste them in your domain registrar's DNS settings
+  5. Wait 10–30 minutes → Done
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Problem: "npm: command not found"
+Fix: Node.js is not installed. Go to nodejs.org and install it.
+
+Problem: "npm install" fails
+Fix: Delete the node_modules folder if it exists, then run again:
+  rm -rf node_modules
+  npm install
+
+Problem: Build fails on Vercel
+Fix: In Vercel project settings:
+  → Framework Preset: Create React App
+  → Build Command: npm run build
+  → Output Directory: build
+  → Node.js Version: 18.x
+
+Problem: Blank white screen after deploy
+Fix: In vercel.json the routes are already configured.
+     If still blank, check the browser console (F12) for errors.
+
+Problem: "Module not found: lucide-react"
+Fix: Run: npm install lucide-react recharts
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHAT OPSLY INCLUDES (All 6 Modules)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Dashboard   — KPIs, revenue charts, activity feed, top clients
+  Clients     — Full CRM with project & invoice history per client
+  Projects    — Kanban board + list view with budget tracking
+  Tasks       — Grouped task manager with time logging
+  Finance     — Invoice table, cash flow charts, revenue split
+  Analytics   — Performance radar, budget health, client ranking
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TECH STACK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  React 18          — UI framework
+  Recharts          — All charts and graphs
+  Lucide React      — Corporate icon system
+  Plus Jakarta Sans — Typography (Google Fonts)
+  Vercel/Netlify    — Hosting (free tier)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BUILT BY OPSLY  |  2026
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
