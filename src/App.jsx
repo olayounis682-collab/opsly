@@ -903,7 +903,7 @@ const NAV = [
   { id: "analytics", Icon: BarChart2, label: "Analytics" },
 ];
 
-export default function App() {
+function App() {
   const [view, setView] = useState("dashboard");
   const overdueCount = INVOICES.filter(i => i.status === "Overdue").length;
 
