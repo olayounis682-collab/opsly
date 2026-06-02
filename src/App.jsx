@@ -384,7 +384,7 @@ function Dashboard() {
             const client = CLIENTS.find(c => c.id === proj?.clientId);
             return (
               <div key={t.id} style={{ display: "flex", alignItems: "center", gap: 12, padding: "9px 0", borderBottom: i < 4 ? `1px solid ${T.border}` : "none" }}>
-                <div style={{ width: 3, height: 36, borderRadius: 2, background: pm.color, flexShrink: 0 }} />
+                <div style={{ width: 3, height: 36, borderRadius: 2, background: "pm".color, flexShrink: 0 }} />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 12, fontWeight: 600, color: T.text, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{t.title}</div>
                   <div style={{ fontSize: 11, color: T.muted, fontWeight: 500 }}>{client?.name} · {t.due}</div>
