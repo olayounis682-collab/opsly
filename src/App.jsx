@@ -384,7 +384,7 @@ function Dashboard() {
             const client = CLIENTS.find(c => c.id === proj?.clientId);
             return (
               <div key={t.id} style={{ display: "flex", alignItems: "center", gap: 12, padding: "9px 0", borderBottom: i < 4 ? `1px solid ${T.border}` : "none" }}>
-                <div style={{ width: 3, height: 36, borderRadius: 2, background: "pm".color, flexShrink: 0 }} />
+                <div style={{ width: 3, height: 36, borderRadius: 2, background: statusMeta(t.priority).color, flexShrink: 0 }} />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 12, fontWeight: 600, color: T.text, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{t.title}</div>
                   <div style={{ fontSize: 11, color: T.muted, fontWeight: 500 }}>{client?.name} · {t.due}</div>
@@ -549,7 +549,6 @@ function ProjectsView() {
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {items.map(p => {
                     const client = CLIENTS.find(c => c.id === p.clientId);
-                    const "pm" = statusMeta(p.priority);
                     return (
                       <div key={p.id} style={{ background: T.surface, border: `1px solid ${T.border}`, borderRadius: 12, padding: "14px", cursor: "pointer", transition: "box-shadow 0.15s", boxShadow: "0 1px 4px rgba(15,28,63,0.05)" }}
                         onMouseEnter={e => e.currentTarget.style.boxShadow = "0 4px 16px rgba(15,28,63,0.12)"}
@@ -668,7 +667,6 @@ function TasksView() {
             </div>
             {proj.list.map((t, i) => {
               const isDone = t.status === "Done";
-              const "pm" = statusMeta(t.priority);
               return (
                 <div key={t.id} style={{ display: "flex", alignItems: "center", gap: 14, padding: "12px 18px", borderBottom: i < proj.list.length - 1 ? `1px solid ${T.border}` : "none", transition: "background 0.1s" }}
                   onMouseEnter={e => e.currentTarget.style.background = T.bg}
@@ -1023,3 +1021,4 @@ export default function App() {
     </div>
   );
 }
+export default App;
